@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float turnSpeed = 40f;
+    public float moveSpeed = 0.5f;
 
     private anxietyMeter anxiety;
 
@@ -35,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 desiredForward = Vector3.RotateTowards(transform.forward, m_Movement, turnSpeed * Time.unscaledDeltaTime, 0f);
         m_Rotation = Quaternion.LookRotation(desiredForward);
-        m_Rigidbody.MovePosition(m_Rigidbody.position + m_Movement * Time.unscaledDeltaTime);
+        m_Rigidbody.MovePosition(m_Rigidbody.position + m_Movement *moveSpeed* Time.unscaledDeltaTime);
     }
 
     void OnAnimatorMove()
