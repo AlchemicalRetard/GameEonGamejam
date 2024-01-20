@@ -1,4 +1,4 @@
-/*using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI; // If you're using UI elements
 
 public class anxietyMeter : MonoBehaviour
@@ -44,8 +44,8 @@ public class anxietyMeter : MonoBehaviour
         currentAnxiety -= anxietyDecreaseRate;
         currentAnxiety = Mathf.Clamp(currentAnxiety, 0, maxAnxiety);
         anxietyBar.value = currentAnxiety;
-        
-        Debug.Log("Slider Value: " + anxietyBar.value);
+
+       // Debug.Log("Slider Value: " + anxietyBar.value);
     }
 
     private void IncreaseAnxietyOverTime()
@@ -65,10 +65,10 @@ public class anxietyMeter : MonoBehaviour
         // Implement game over logic or other consequences
     }
 }
-*/
 
 
-using UnityEngine;
+
+/*using UnityEngine;
 using UnityEngine.UI;
 
 public class anxietyMeter : MonoBehaviour
@@ -133,3 +133,4 @@ public class anxietyMeter : MonoBehaviour
         // Implement game over logic or other consequences
     }
 }
+*/
