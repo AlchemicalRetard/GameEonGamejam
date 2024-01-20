@@ -22,10 +22,11 @@ public class AnxietyTablet : MonoBehaviour
 
             if (playerScript != null)
             {
-                anxietyMeter playerAnxiety = other.GetComponent<anxietyMeter>();
-                if (playerAnxiety != null)
+                //anxietyMeter playerAnxiety = other.GetComponent<anxietyMeter>();
+                if (playerScript != null)
                 {
-                    playerAnxiety.DecreaseAnxiety();
+                    playerScript.reduction();
+                    Debug.Log("decreased");
                 }
             }
 

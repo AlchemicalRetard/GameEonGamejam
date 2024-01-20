@@ -13,8 +13,6 @@ public class PlayerMovement : MonoBehaviour
     Vector3 m_Movement;
     Quaternion m_Rotation = Quaternion.identity;
 
-    float idleTime = 0.4f;
-    float timer = 0.4f;
     void Start()
     {
         m_Animator = GetComponent<Animator>();
@@ -46,8 +44,9 @@ public class PlayerMovement : MonoBehaviour
         m_Rigidbody.MoveRotation(m_Rotation);
     }
 
-    void reduction()   // used to refence anxiety from anxiety meter script
+    public void reduction()   // used to refence anxiety from anxiety meter script
     {
         anxiety.DecreaseAnxiety();
+
     }
 }
