@@ -7,7 +7,7 @@ public class anxietyMeter : MonoBehaviour
     private float maxAnxiety = 100f; // Maximum anxiety level
     private float currentAnxiety; // Current anxiety level
     private float anxietyDecreaseRate = 10f; // Rate at which anxiety decreases when tablets are collected
-
+    public float anxietyIncreaseRate = 5f;
     void Start()
     {
         // Initialize the anxiety meter
@@ -52,7 +52,8 @@ public class anxietyMeter : MonoBehaviour
     {
         // Gradually increase anxiety over time
         // Adjust the rate as needed
-        currentAnxiety += Time.deltaTime;
+        
+        currentAnxiety += anxietyIncreaseRate * Time.deltaTime;
         currentAnxiety = Mathf.Clamp(currentAnxiety, 0, maxAnxiety);
         anxietyBar.value = currentAnxiety;
         Debug.Log("Current Anxiety: " + currentAnxiety);
