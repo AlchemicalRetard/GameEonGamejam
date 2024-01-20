@@ -1,42 +1,4 @@
-/*using UnityEngine;
-
-public class TimeSlower : MonoBehaviour
-{
-    public float slowDownFactor = 0.5f; // How much to slow down time
-    public float slowDownLength = 5f; // Duration of the slow down effect
-
-    private bool isSlowingTime = false;
-
-    void Update()
-    {
-        // Check for player input to activate the ability
-        if (Input.GetKeyDown(KeyCode.T)) // 'T' key as an example
-        {
-            StartSlowMotion();
-        }
-
-        // Gradually return to normal time
-        if (isSlowingTime && Time.timeScale < 1f)
-        {
-            Time.timeScale += (1f / slowDownLength) * Time.unscaledDeltaTime;
-            Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
-        }
-    }
-
-    void StartSlowMotion()
-    {
-        Time.timeScale = slowDownFactor;
-        Time.fixedDeltaTime = Time.timeScale * .02f; // Adjust physics update to match slow motion
-        isSlowingTime = true;
-        Invoke("ResetTimeScale", slowDownLength);
-    }
-
-    void ResetTimeScale()
-    {
-        isSlowingTime = false;
-    }
-}
-*/
+/*
 using UnityEngine;
 using UnityEngine.UI; // Required for UI elements
 using System.Collections;
@@ -108,3 +70,113 @@ public class TimeSlower : MonoBehaviour
         if (cooldownTimer < 0) cooldownTimer = 0;
     }
 }
+*/
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using System.Collections;
+
+public class TimeSlower : MonoBehaviour
+{
+    public float slowMotionFactor = 0.5f;
+    public float abilityDuration = 5f;
+    public float cooldownDuration = 20f;
+
+    private float cooldownTimer = 0f;
+
+    // New UI components
+    public Image cooldownImage;
+    public TextMeshProUGUI cooldownText;
+
+    void Start()
+    {
+        if (cooldownImage != null)
+        {
+            cooldownImage.fillAmount = 0;
+        }
+
+        if (cooldownText != null)
+        {
+            cooldownText.text = "";
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T) && cooldownTimer <= 0)
+        {
+            cooldownTimer = cooldownDuration; // Start cooldown immediately
+            StartCoroutine(ActivateAbility());
+        }
+
+        AbilityCooldown();
+    }
+
+    private IEnumerator ActivateAbility()
+    {
+        float originalFixedDeltaTime = Time.fixedDeltaTime;
+
+        // Adjust time scale for ability effect
+        Time.timeScale = slowMotionFactor;
+        Time.fixedDeltaTime = Time.fixedDeltaTime * slowMotionFactor;
+
+        // Wait for ability duration
+        yield return new WaitForSecondsRealtime(abilityDuration);
+
+        // Reset time scale back to normal
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = originalFixedDeltaTime;
+    }
+    public void ReduceCooldown(float amount)
+    {
+        cooldownTimer -= amount;
+        if (cooldownTimer < 0)
+        {
+            cooldownTimer = 0;
+        }
+
+        // Update the UI components if they exist
+        if (cooldownImage != null)
+        {
+            cooldownImage.fillAmount = cooldownTimer / cooldownDuration;
+        }
+
+        if (cooldownText != null)
+        {
+            cooldownText.text = cooldownTimer > 0 ? Mathf.Ceil(cooldownTimer).ToString() : "";
+        }
+    }
+
+    private void AbilityCooldown()
+    {
+        if (cooldownTimer > 0)
+        {
+            cooldownTimer -= Time.unscaledDeltaTime;
+
+            // Update the UI components
+            if (cooldownImage != null)
+            {
+                cooldownImage.fillAmount = cooldownTimer / cooldownDuration;
+            }
+
+            if (cooldownText != null)
+            {
+                cooldownText.text = Mathf.Ceil(cooldownTimer).ToString();
+            }
+        }
+        else
+        {
+            if (cooldownImage != null)
+            {
+                cooldownImage.fillAmount = 0f;
+            }
+
+            if (cooldownText != null)
+            {
+                cooldownText.text = "";
+            }
+        }
+
+    }
+
+} 
