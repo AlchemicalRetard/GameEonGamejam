@@ -12,7 +12,7 @@ public class AlertNPC : MonoBehaviour
     public Animator animator; // Animator reference
     public float patrolRadius = 10.0f; // Radius for random patrol
 
-    private bool isAlerted = false;
+    public bool isAlerted = false;
     private Color originalLightColor;
     private float timeSinceLastSeenPlayer = 0f; // Timer
     private const float timeToReset = 5f; // Time to reset to normal behavior
@@ -39,8 +39,10 @@ public class AlertNPC : MonoBehaviour
         {
             if (CanSeePlayer())
             {
+                
                 timeSinceLastSeenPlayer = 0; // Reset timer if player is seen
                 animator.SetTrigger("LookAround"); // Player spotted, trigger LookAround
+                
             }
             else
             {
@@ -63,6 +65,7 @@ public class AlertNPC : MonoBehaviour
                 isAlerted = true;
                 patrolLight.color = Color.yellow; // Change light color to yellow
                 navMeshAgent.isStopped = true; // Stop the NPC
+                
             }
             else if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
             {
@@ -72,9 +75,10 @@ public class AlertNPC : MonoBehaviour
         }
     }
 
+
     void SetRandomDestination()
     {
-        Vector3 randomDirection = Random.insideUnitSphere * patrolRadius;
+        Vector3 randomDirection = UnityEngine.Random.insideUnitSphere * patrolRadius;
         randomDirection += transform.position;
         NavMeshHit hit;
         Vector3 finalPosition = Vector3.zero;
@@ -103,4 +107,5 @@ public class AlertNPC : MonoBehaviour
 
         return false; // Player is not visible
     }
+  
 }

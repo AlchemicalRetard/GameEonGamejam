@@ -56,13 +56,13 @@ public class anxietyMeter : MonoBehaviour
         currentAnxiety += anxietyIncreaseRate * Time.deltaTime;
         currentAnxiety = Mathf.Clamp(currentAnxiety, 0, maxAnxiety);
         anxietyBar.value = currentAnxiety;
-        Debug.Log("Current Anxiety: " + currentAnxiety);
+       // Debug.Log("Current Anxiety: " + currentAnxiety);
     }
 
     private void HandleMaxAnxiety()
     {
         // Handle the situation when anxiety reaches the maximum level
-        Debug.Log("Anxiety reached max level! Game Over!");
+        //Debug.Log("Anxiety reached max level! Game Over!");
         // Implement game over logic or other consequences
     }
 }
