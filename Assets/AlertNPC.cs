@@ -11,6 +11,7 @@ public class AlertNPC : MonoBehaviour
     public LayerMask viewMask;
     public Animator animator; // Animator reference
     public float patrolRadius = 10.0f; // Radius for random patrol
+    
 
     public bool isAlerted = false;
     private Color originalLightColor;
@@ -41,6 +42,8 @@ public class AlertNPC : MonoBehaviour
             {
                 
                 timeSinceLastSeenPlayer = 0; // Reset timer if player is seen
+                
+
                 animator.SetTrigger("LookAround"); // Player spotted, trigger LookAround
                 
             }
