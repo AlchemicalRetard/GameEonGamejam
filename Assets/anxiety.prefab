@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c78235c99d2e074dadf877887f74202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anxietyReductionAmount: 50
+  anxietyReductionAmount: 80
   cooldownReductionAmount: 5
 --- !u!4 &4263783432685065474 stripped
 Transform:
