@@ -45,8 +45,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2.23
-  m_Range: 4.05
+  m_Intensity: 30
+  m_Range: 6
   m_SpotAngle: 64.80823
   m_InnerSpotAngle: 64.80823
   m_CookieSize: 10
@@ -87,7 +87,7 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 2.77
+  m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -139,7 +139,7 @@ PrefabInstance:
     - target: {fileID: 4944431777094887379, guid: 55b189e944582fb41aeebc4b9b2c01e8,
         type: 3}
       propertyPath: m_Name
-      value: Monster-7 Variant
+      value: Npc
       objectReference: {fileID: 0}
     - target: {fileID: 7024016641055730809, guid: 55b189e944582fb41aeebc4b9b2c01e8,
         type: 3}
