@@ -8,6 +8,7 @@ public class anxietyMeter : MonoBehaviour
     private float currentAnxiety; // Current anxiety level
     private float anxietyDecreaseRate = 10f; // Rate at which anxiety decreases when tablets are collected
     public float anxietyIncreaseRate = 5f;
+    public GameObject GameOverPanel;
     void Start()
     {
         // Initialize the anxiety meter
@@ -64,6 +65,8 @@ public class anxietyMeter : MonoBehaviour
         // Handle the situation when anxiety reaches the maximum level
         //Debug.Log("Anxiety reached max level! Game Over!");
         // Implement game over logic or other consequences
+        GameOverPanel.SetActive(true);
+
     }
 }
 

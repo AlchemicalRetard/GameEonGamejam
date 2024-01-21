@@ -25,15 +25,19 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    void Resume()
+    public void Resume()
     {
         target.SetActive(false);
         isPaused = false;
         Time.timeScale = 1;
     }
-
-    void Quit()
+    public void Quit()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }

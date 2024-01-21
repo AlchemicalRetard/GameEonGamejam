@@ -213,10 +213,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8159831043686992284}
-    - targetCorrespondingSourceObject: {fileID: 5250659286268021285, guid: 5cd97b84979069440ad59df73c135724,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2537172598153858237}
   m_SourcePrefab: {fileID: 100100000, guid: 5cd97b84979069440ad59df73c135724, type: 3}
 --- !u!1 &3487986086491443128 stripped
 GameObject:
@@ -238,21 +234,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anxietyReductionAmount: 10
   cooldownReductionAmount: 5
---- !u!114 &2537172598153858237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3487986086491443128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 592f7c010dc720441a04b96d650b6783, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalSeconds: 0
-  maxIntensity: 0
-  myLight: {fileID: 3212834476618452310}
 --- !u!4 &4263783432685065474 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4870016694672478367, guid: 5cd97b84979069440ad59df73c135724,
