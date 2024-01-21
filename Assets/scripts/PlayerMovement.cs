@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float turnSpeed = 40f;
-    public float moveSpeed = 0.5f;
+    public float moveSpeed = 3f;
 
     private anxietyMeter anxiety;
 
@@ -50,4 +50,25 @@ public class PlayerMovement : MonoBehaviour
         anxiety.DecreaseAnxiety();
 
     }
+
+
+    public void GetStunned()
+    {
+        StartCoroutine(StunPlayer());
+    }
+    private IEnumerator StunPlayer()
+    {
+        float espeed = 3f;
+        // Disable player movement
+        m_Animator.SetBool("stuned",true);
+        moveSpeed = 0;
+
+        // Wait for 4 seconds
+        yield return new WaitForSeconds(4);
+        m_Animator.SetBool("stuned", false);
+        // Re-enable player movement
+        moveSpeed = espeed;
+    }
+
+
 }

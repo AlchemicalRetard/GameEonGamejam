@@ -9,7 +9,7 @@ public class AnxietyTablet : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("touched");
+            //Debug.Log("touched");
             // Directly access the TimeSlowerAbility script attached to the player
             TimeSlower timeSlower = other.GetComponent<TimeSlower>();
             PlayerMovement playerScript = other.GetComponent<PlayerMovement>(); // Assuming you have a Player script for anxiety management
@@ -26,7 +26,7 @@ public class AnxietyTablet : MonoBehaviour
                 if (playerScript != null)
                 {
                     playerScript.reduction();
-                    Debug.Log("decreased");
+                   // Debug.Log("decreased");
                 }
             }
 
