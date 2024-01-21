@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private IEnumerator StunPlayer()
     {
-        float espeed = 3f;
+        float espeed = 5f;
         // Disable player movement
         m_Animator.SetBool("stuned",true);
         moveSpeed = 0;
