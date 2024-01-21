@@ -17,7 +17,7 @@ public class Clock : MonoBehaviour
         realTime += Time.deltaTime;
 
         // If 15 real seconds have passed
-        if (realTime >= 50)
+        if (realTime >= 25)
         {
             // Increase game time by 30 minutes
             gameTime += 30;
