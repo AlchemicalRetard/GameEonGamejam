@@ -20,7 +20,7 @@ public class ItemSpawner : MonoBehaviour
         }
     }
 
-    void SpawnObject()
+    public void SpawnObject()
     {
         // Generate a random position within the specified ranges
         Vector3 randomPosition = new Vector3(
